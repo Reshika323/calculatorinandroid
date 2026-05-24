@@ -1,198 +1,212 @@
-
-# Ex.No:3 Design an android application Send SMS using Intent.
-
+# Ex.No:5 Develop a simple calculator using android studio.
 
 ## AIM:
 
-To create and design an android application Send SMS using Intent using Android Studio.
+To develop a program to develop a simple calculator in Android Studio.
 
 ## EQUIPMENTS REQUIRED:
 
-Android Studio(Latest Version)
+Android Studio(Min.required Artic Fox)
 
 ## ALGORITHM:
 
 Step 1: Open Android Stdio and then click on File -> New -> New project.
 
-Step 2: Then type the Application name as smsintent and click Next. 
+Step 2: Then type the Application name as calculator and click Next. 
 
 Step 3: Then select the Minimum SDK as shown below and click Next.
 
 Step 4: Then select the Empty Activity and click Next. Finally click Finish.
 
-Step 5: Design layout in activity_main.xml.
+Step 5: Design layout using UI components in activity_main.xml.
 
-Step 6: Send SMS and Display details give in MainActivity file.
+Step 6: Display the calculator operation in MainActivity file.
 
 Step 7: Save and run the application.
 
 ## PROGRAM:
 ```
 /*
-Program to create and design an android application Send SMS using Intent.
-Developed by: ASHIKA TR
-Registeration Number : 212224220011
+Program to print the text “calculator operation”.
+Developed by:ASHIKA TR
+Registeration Number :212224220011
 */
 ```
 
 ## activity_main.xml
 
 ```
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">
 
-    <EditText
-        android:id="@+id/etNumber"
-        android:layout_width="0dp"
+    <!-- Display -->
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter phone number"
-        android:inputType="phone"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_margin="16dp"/>
+        android:text="0"
+        android:textSize="32sp"
+        android:gravity="right"
+        android:padding="10dp"
+        android:background="#EEEEEE" />
 
-    <EditText
-        android:id="@+id/etMessage"
-        android:layout_width="0dp"
+    <!-- Buttons Grid -->
+    <GridLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter your message"
-        android:inputType="textMultiLine"
-        app:layout_constraintTop_toBottomOf="@id/etNumber"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_margin="16dp"/>
+        android:rowCount="5"
+        android:columnCount="5"
+        android:layout_marginTop="20dp">
 
-    <Button
-        android:id="@+id/btnSend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Send SMS"
-        app:layout_constraintTop_toBottomOf="@id/etMessage"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="20dp"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Row 1 -->
+        <Button android:id="@+id/btn7" android:text="7"
+            android:layout_width="0dp" android:layout_height="80dp" android:layout_row="0" android:layout_column="0"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"/>
+        <Button android:id="@+id/btn8" android:text="8"
+            android:layout_width="0dp" android:layout_height="80dp" android:layout_row="0" android:layout_column="1"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"/>
+        <Button android:id="@+id/btn9" android:text="9"
+            android:layout_width="0dp" android:layout_height="80dp" android:layout_row="0" android:layout_column="2"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"/>
+        <Button android:id="@+id/btnDiv" android:text="/"
+            android:layout_width="0dp" android:layout_height="80dp" android:layout_row="0" android:layout_column="3"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"/>
+
+        <!-- Row 2 -->
+        <Button android:id="@+id/btn4" android:text="4"
+            android:layout_width="0dp" android:layout_height="80dp" android:layout_row="1" android:layout_column="0"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"/>
+        <Button android:id="@+id/btn5" android:text="5"
+            android:layout_width="0dp" android:layout_height="80dp" android:layout_row="1" android:layout_column="1"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"/>
+        <Button android:id="@+id/btn6" android:text="6"
+            android:layout_width="0dp" android:layout_height="80dp" android:layout_row="1" android:layout_column="2"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"/>
+        <Button android:id="@+id/btnMul" android:text="*"
+            android:layout_width="0dp" android:layout_height="80dp" android:layout_row="1" android:layout_column="3"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"/>
+
+        <!-- Row 3 -->
+        <Button android:id="@+id/btn1" android:text="1"
+            android:layout_width="0dp" android:layout_height="80dp" android:layout_row="2" android:layout_column="0"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"/>
+        <Button android:id="@+id/btn2" android:text="2"
+            android:layout_width="0dp" android:layout_height="80dp" android:layout_row="2" android:layout_column="1"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"/>
+        <Button android:id="@+id/btn3" android:text="3"
+            android:layout_width="0dp" android:layout_height="80dp" android:layout_row="2" android:layout_column="2"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"/>
+        <Button android:id="@+id/btnSub" android:text="-"
+            android:layout_width="0dp" android:layout_height="80dp" android:layout_row="2" android:layout_column="3"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"/>
+
+        <!-- Row 4 -->
+        <Button android:id="@+id/btn0" android:text="0"
+            android:layout_width="0dp" android:layout_height="80dp" android:layout_row="3" android:layout_column="0"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"/>
+        <Button android:id="@+id/btnDot" android:text="."
+            android:layout_width="0dp" android:layout_height="80dp" android:layout_row="3" android:layout_column="1"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"/>
+        <Button android:id="@+id/btnEqual" android:text="="
+            android:layout_width="0dp" android:layout_height="80dp" android:layout_row="3" android:layout_column="2"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"/>
+        <Button android:id="@+id/btnAdd" android:text="+"
+            android:layout_width="0dp" android:layout_height="80dp" android:layout_row="3" android:layout_column="3"
+            android:layout_columnWeight="1" android:layout_rowWeight="1"/>
+    </GridLayout>
+
+</LinearLayout>
+
 ```
-
-## MainActivity.java
+## MAinActivity.java
 
 ```
-package com.example.sendsms;
+package com.example.calculator;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import android.Manifest;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText etNumber, etMessage;
-    Button btnSend;
-    private static final int SMS_PERMISSION_CODE = 100;
+    TextView tvResult;
+    String currentInput = "";
+    String operator = "";
+    double firstNumber = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        etNumber = findViewById(R.id.etNumber);
-        etMessage = findViewById(R.id.etMessage);
-        btnSend = findViewById(R.id.btnSend);
+        tvResult = findViewById(R.id.tvResult);
 
-        btnSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checkSelfPermission(Manifest.permission.SEND_SMS)
-                        == PackageManager.PERMISSION_GRANTED) {
-                    sendSMS();
+        // Number buttons
+        int[] numberIDs = {R.id.btn0, R.id.btn1, R.id.btn2, R.id.btn3, R.id.btn4,
+                R.id.btn5, R.id.btn6, R.id.btn7, R.id.btn8, R.id.btn9};
+
+        View.OnClickListener numberListener = v -> {
+            Button b = (Button) v;
+            currentInput += b.getText().toString();
+            tvResult.setText(currentInput);
+        };
+
+        for (int id : numberIDs) {
+            findViewById(id).setOnClickListener(numberListener);
+        }
+
+        // Operators
+        findViewById(R.id.btnAdd).setOnClickListener(v -> setOperator("+"));
+        findViewById(R.id.btnSub).setOnClickListener(v -> setOperator("-"));
+        findViewById(R.id.btnMul).setOnClickListener(v -> setOperator("*"));
+        findViewById(R.id.btnDiv).setOnClickListener(v -> setOperator("/"));
+
+        // Equal
+        findViewById(R.id.btnEqual).setOnClickListener(v -> calculate());
+    }
+
+    private void setOperator(String op) {
+        firstNumber = Double.parseDouble(currentInput);
+        operator = op;
+        currentInput = "";
+    }
+
+    private void calculate() {
+        double secondNumber = Double.parseDouble(currentInput);
+        double result = 0;
+
+        switch (operator) {
+            case "+": result = firstNumber + secondNumber; break;
+            case "-": result = firstNumber - secondNumber; break;
+            case "*": result = firstNumber * secondNumber; break;
+            case "/":
+                if (secondNumber != 0) {
+                    result = firstNumber / secondNumber;
                 } else {
-                    requestPermissions(new String[]{Manifest.permission.SEND_SMS}, SMS_PERMISSION_CODE);
+                    tvResult.setText("Error");
+                    return;
                 }
-            }
-        });
-    }
-
-    private void sendSMS() {
-        String phone = etNumber.getText().toString().trim();
-        String message = etMessage.getText().toString().trim();
-
-        if (!phone.isEmpty() && !message.isEmpty()) {
-            try {
-                SmsManager smsManager = SmsManager.getDefault();
-                smsManager.sendTextMessage(phone, null, message, null, null);
-                Toast.makeText(this, "SMS Sent!", Toast.LENGTH_SHORT).show();
-            } catch (Exception e) {
-                Toast.makeText(this, "Failed to send SMS", Toast.LENGTH_SHORT).show();
-            }
-        } else {
-            Toast.makeText(this, "Enter number and message", Toast.LENGTH_SHORT).show();
+                break;
         }
-    }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == SMS_PERMISSION_CODE && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            sendSMS();
-        } else {
-            Toast.makeText(this, "Permission Denied!", Toast.LENGTH_SHORT).show();
-        }
+        tvResult.setText(String.valueOf(result));
+        currentInput = String.valueOf(result);
     }
 }
-```
-
-## Androidmanifest.xml
 
 ```
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-feature
-        android:name="android.hardware.telephony"
-        android:required="false" />
-    <uses-permission android:name="android.permission.SEND_SMS"></uses-permission>
-
-    <application
-        android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.SendSMS">
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
-
-</manifest>
-```
 ## OUTPUT
 
-<img width="1919" height="1199" alt="Screenshot 2025-09-16 075627" src="https://github.com/user-attachments/assets/815c27a2-73c1-46ac-8c17-1bfa43f50715" />
-<img width="1919" height="1199" alt="Screenshot 2025-09-16 075640" src="https://github.com/user-attachments/assets/8d2102c6-8785-4258-8488-0557ddcea4fe" />
+<img width="1867" height="1108" alt="image" src="https://github.com/user-attachments/assets/dc9a4d50-fe5c-4dfb-9818-951fc05b1a0b" />
+
 
 
 ## RESULT
-Thus a Simple Android Application create and design an android application Send SMS using Intent using Android Studio is developed and executed successfully.
+Thus a Simple Android Application develop a program to create simple calculator in Android Studio is developed and executed successfully.
