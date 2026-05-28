@@ -28,8 +28,8 @@ Step 7: Save and run the application.
 ```
 /*
 Program to print the text “calculator operation”.
-Developed by:ASHIKA TR
-Registeration Number :212224220011
+Developed by: M RESHIKA
+Registeration Number :212224220079
 */
 ```
 
